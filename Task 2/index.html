@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    
+    <div class="input-form">
+      <h1>ToDo list</h1>
+      <form>
+        <div class="field">
+          <label for="taskName">Task:</label>
+          <input type="text" id="taskName" name="taskName" placeholder="Task Name">
+        </div>
+        
+        <div class="field">
+          <label for="dueDate">Date:</label>
+          <input type="date" id="dueDate" name="dueDate">
+        </div>
+        
+        <button type="submit">Add Task</button>
+        <div class="clear-fix"></div>
+      </form>
+    </div>
+    
+    <hr />
+    
+    <div class="task-table">
+      <h2>Tasks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Task</th>
+            <th>Evaluation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>13/6/2023</td>
+            <td>
+              <ul>
+                <li>
+                  <input type="checkbox" id="task1" name="task1">
+                  <label for="task1">Task 1</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="task2" name="task2">
+                  <label for="task2">Task 2</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="task3" name="task3">
+                  <label for="task3">Task 3</label>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <input type="range" min="0" max="100" value="50">
+            </td>
+          </tr>
+          <tr>
+            <td>13/7/2023</td>
+            <td>
+              <ul>
+                <li>
+                  <input type="checkbox" id="task4" name="task4">
+                  <label for="task4">Task 4</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="task5" name="task5">
+                  <label for="task5">Task 5</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="task6" name="task6">
+                  <label for="task6">Task 6</label>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <input type="range" min="0" max="100" value="50">
+            </td>
+          </tr>
+          <tr>
+            <td>13/8/2023</td>
+            <td>
+              <ul>
+                <li>
+                  <input type="checkbox" id="task7" name="task7">
+                  <label for="task7">Task 7</label>
+                </li>
+                <li>
+                  <input type="checkbox" id="task8" name="task8">
+                  <label for="task8">Task 8</label>
+                </li> 
+                <li>
+                  <input type="checkbox" id="task9" name="task9">
+                  <label for="task9">Task 9</label>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <input type="range" min="0" max="100" value="50">
+            </td>
+          </tr>
+        </tbody>
+      
+      </table>
+    </div>
+
+    <script src="javascript/main.js"></script>
+  </body>
+</html>
