@@ -1,3 +1,4 @@
+let tasks = []
 class Task {
     constructor(name, date, status) {
       this.name = name;
@@ -12,7 +13,7 @@ class Task {
 
 class ToDoList {
   date;
-  evaluation="Incomplete";
+  evaluation="placeholder";
   constructor(date, tasks) {
     this.date = date;
     this.tasks = tasks;
@@ -20,9 +21,15 @@ class ToDoList {
 }
 
 function addTask(taskName, date) {
-  return new Task(taskName, date, "Incomplete");
+  tasks.push(new Task(taskName, date, "Incomplete"));
+  tasks.sort((a, b) => a.date - b.date);
   
 }
+
+addTask("pray", new Date(2023, 7, 26)),
+addTask("eat", new Date(2023, 7, 27)),
+addTask("sleep", new Date(2023, 7, 28))
+console.log(tasks);
 
 function buildToDoList(date, tasks) {
   let todoList = [];
@@ -34,34 +41,32 @@ function buildToDoList(date, tasks) {
 
 let toDoLists=[];
 
-let tasks=[
-  addTask("pray", "26-7-23"),
-  addTask("eat", "27-7-23"),
-  addTask("sleep", "27-7-23")
-]
 let todos =[
   buildToDoList("26-7-23", tasks),
   buildToDoList("27-7-23", tasks),
   buildToDoList("28-7-23",tasks)
 ]
 
-function evaluateDay(date, evalValue) {
+function evaluateDay(date, evalValue, sortf) {
   for (let todo of todos) {
     if (todo.date === date) {
       todo.evaluation=evalValue;
     }
   }
-  todos.sort(sortByEvaluation);
+
+  sortf()
+  
 }
 
-function sortByEvaluation(a, b) {
-  return b.evaluation - a.evaluation;
+function sortByEvaluation() {
+  // sort
+  todos.sort((a, b) => b.evaluation - a.evaluation);
 }
 
 
-evaluateDay("26-7-23" , 10);
-evaluateDay("27-7-23" , 11);
-evaluateDay("28-7-23" , 12);
+evaluateDay("26-7-23" , 10, sortByEvaluation);
+evaluateDay("27-7-23" , 11, sortByEvaluation);
+evaluateDay("28-7-23" , 12, sortByEvaluation);
 
  
 
