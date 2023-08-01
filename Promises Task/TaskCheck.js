@@ -1,7 +1,13 @@
+const task = {
+  taskId: 123,
+  description: "Sample task",
+  status: "in progress",
+};
+
 let isTaskDone = new Promise((resolve) => {
-    setTimeout(() => {
+    // setTimeout(() => {
       resolve(task.status === "done");
-    }, 2000);
+    // }, 2000);
   });
 
 
@@ -19,11 +25,4 @@ function check() {
 }
 
 
-const task = {
-    taskId: 123,
-    description: "Sample task",
-    status: "in progress",
-};
-
-  
-check(task);
+check();

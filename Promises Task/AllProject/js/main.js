@@ -3,7 +3,7 @@ class Task {
       this.name = name;
       this.date = date;
       this.status = status;
-      this.evaluation = "Incomplete";
+      this.evaluation = "placeholder";
     }
     
     updateTask(status) {
