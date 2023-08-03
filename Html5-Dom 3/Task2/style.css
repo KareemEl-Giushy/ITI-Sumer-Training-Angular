@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 70%;
+    margin: 20px auto;
+    padding: 30px;
+    border: 3px solid #000;
+    background: radial-gradient(closest-side, #ebf8e1, #ebf8e1, #ebf8e1, #FFB176);
+    border-radius: 25px;
+}
+
+section {
+    padding: 10px;
+    border: 3px solid #000;
+    border-radius: 25px;
+    min-height: 150px;
+}
+
+section:first-child {
+    margin-bottom: 50px;
+}
+
+section img {
+    border: 3px solid cyan;
+    margin: 10px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Drag</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #mymap {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyB90FxtYG_ybAYXGkz0ybkmkboE2nEbezI"></script>
+    <script>
+        window.addEventListener('load', function () {
+            mymap = this.document.getElementById('mymap');
+            details = this.document.getElementById("details");
+            tlat = this.document.getElementById("lat");
+            tlon = this.document.getElementById("lon");
+            tacc = this.document.getElementById("acc");
+            ttime = this.document.getElementById("time");
+        });//end of load
+        function getcurrentlocation() {
+            mymap.hidden = false;
+            details.hidden = true;
+            // 1- check geolocation availability in user browser :
+            if (navigator.geolocation) {
+                // exist
+                // get permission : using getcurrentPosition(2 callbacks : 1 for success , 2 error callback)
+                navigator.geolocation.getCurrentPosition(getposition, errordelere);
+            } else {
+                //not exist
+                mymap.innerText = "Sorry , Updated Your Browser And Try Again !!!";
+            }
+        }
+        function getposition(e) {
+            console.log(e);
+            // console.log("kAREEM");
+            lat = e.coords.latitude;
+            lon = e.coords.longitude;
+            time = new Date(e.timestamp).toString();
+            acc = e.coords.accuracy;
+            //latlon = lat + ' , ' + lon;
+            //console.log(latlon);
+            //1- create google latlng ovject ( lat , lon )
+            var location = new google.maps.LatLng(lat, lon);
+            //2- specify specs of map : zoom : , center
+            var specs = { zoom: 17, center: location };
+            // 3 retrive map and display map
+            new google.maps.Map(mymap, specs);
+
+            // mymap.innerText = latlon;
+        }
+        function errordelere() {
+            alert('Error');
+        }
+
+        function detailedInformation() {
+            mymap.hidden = true;
+            details.hidden = false;
+
+            console.log(location);
+
+            tlat.value = lat;
+            tlon.value = lon;
+            tacc.value = acc;
+            ttime.value = time;
+
+            // mymap.textContent = lat + lon ;
+
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="ctls">
+            <button type="button" value="GetLocation" onclick="getcurrentlocation();">Display Map</button>
+            <button type="button" onclick="detailedInformation()">Detailed Information</button>
+        </div>
+        <div id="mymap">
+
+        </div>
+        <div id="details" hidden>
+            <form>
+                <div>Latitude</div>
+                <input type="text" id="lat">
+                <div>Longitude</div>
+                <input type="text" id="lon">
+                <div>Accuracy</div>
+                <input type="text" id="acc">
+                <div>Timestamp</div>
+                <input type="text" id="time">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

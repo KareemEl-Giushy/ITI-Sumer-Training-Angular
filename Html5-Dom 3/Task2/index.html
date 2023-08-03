@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Drag</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+
+window.addEventListener('load', function () {
+            // select all images : then register dragstart and dragend with it
+            let allimages = this.document.images;
+            for (var i = 0; i < allimages.length; i++) {
+                allimages[i].addEventListener('dragstart', startdrag);
+                allimages[i].addEventListener('dragend', enddrag);
+            }
+            // select left : register drop , dragenter , dragover
+            left = this.document.getElementById('down-section');
+            left.addEventListener('drop', dropped);
+            left.addEventListener('dragenter', enterdrag);
+            left.addEventListener('dragover', overdrag);
+            // select right : regster dragleave event
+            right = this.document.getElementById('up-section');
+            right.addEventListener('dragleave', leavedrag);
+        });//end of load
+        function startdrag(e) {
+            //console.log(e.target.outerHTML);
+            //console.log(e);
+            e.dataTransfer.setData('myimg', e.target.outerHTML);
+            //e.target.outerHTML
+        }
+        function enddrag(e) {
+            e.preventDefault();
+            // console.log(e.target);
+            e.target.style.display = "none";
+            e.target.remove();
+            console.log(right.innerHTML.trim() );
+            if(right.innerHTML.trim() == "") {
+                console.log("hlewfjlksj");
+                right.style.backgroundColor = "green";
+                right.style.textAlign = 'center';
+                right.append("All Empty");
+            }
+        }
+        function dropped(e) {
+            e.preventDefault();
+            left.innerHTML += e.dataTransfer.getData('myimg');
+        }
+        function enterdrag(e) {
+            e.preventDefault();
+            left.style.backgroundColor = "cyan";
+        }
+        function leavedrag(e) {
+            e.preventDefault();
+            console.log(e);
+        }
+        function overdrag(e) {
+            e.preventDefault();
+        }
+    
+    </script>
+</head>
+<body>
+    <div class="container">
+        <section id="up-section">
+            <img src="https://picsum.photos/150" alt="">
+            <img src="https://picsum.photos/150" alt="">
+            <img src="https://picsum.photos/150" alt="">
+            <img src="https://picsum.photos/150" alt="">
+            <img src="https://picsum.photos/150" alt="">
+        </section>
+        <section id="down-section">
+
+        </section>
+    </div>
+</body>
+</html>

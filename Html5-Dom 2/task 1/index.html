@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITI Locations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>ITI Locations </h1>
+        <div>ITI main locations all over the country</div>
+    </div>
+    <div class="row">
+
+        <div class="map-wraper">
+            <div class="map" style="transform: translate3d(0px, 0px, 0px);">
+            
+            
+                <svg pointer-events="none" class="leaflet-zoom-animated" width="570" height="563" viewBox="-47 -47 570 563" style="transform: translate3d(-47px, -47px, 0px);">
+                    <g>
+                        <path class="leaflet-interactive" stroke="#6C7175" stroke-opacity="1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="#6C7175" fill-opacity="0.2" fill-rule="evenodd" d="M350 170L343 180L338 200L332 213L327 218L309 198L293 161L290 163L300 191L314 217L331 256L347 284L367 312L363 316L363 332L390 355L394 360L124 360L124 177L117 156L123 139L119 128L128 115L158 115L213 134L240 118L260 116L276 119L282 132L288 123L306 130L324 131L335 125z"></path>
+                    </g>
+                </svg>
+        
+                <div class="markers">
+                    <img src="map-marker.svg" class="leaflet-marker-icon" id="mat" title="Computer Science Training Center - Marsa Matruh" alt="" tabindex="0" style="margin-left: -20px; margin-top: -20px; width: 20px; height: 20px; transform: translate3d(175px, 121px, 0px); z-index: 121;">
+                    <img src="map-marker.svg" class="leaflet-marker-icon" id="sewa" title="Computer Science Training Center - Siwa" alt="" tabindex="0" style="margin-left: -20px; margin-top: -20px; width: 20px; height: 20px; transform: translate3d(136px, 178px, 0px); z-index: 178;">
+                    <img src="map-marker.svg" class="leaflet-marker-icon" id="ism" title="ITI - Ismailia" alt="" tabindex="0" style="margin-left: -20px; margin-top: -20px; width: 20px; height: 20px; transform: translate3d(289px, 140px, 0px); z-index: 140;">
+                    <img src="map-marker.svg" class="leaflet-marker-icon" id="qyna" title="Computer Science Training Center - Kharga" alt="" tabindex="0" style="margin-left: -20px; margin-top: -20px; width: 20px; height: 20px; transform: translate3d(250px, 274px, 0px); z-index: 274;">
+                    <img src="map-marker.svg" class="leaflet-marker-icon" id="mans" title="Computer Science Training Center - Tanta" alt="" tabindex="0" style="margin-left: -20px; margin-top: -20px; width: 20px; height: 20px; transform: translate3d(260px, 136px, 0px); z-index: 136;">
+                    <img src="map-marker.svg" class="leaflet-marker-icon" id="alex" title="ITI - Alexandria" alt="" tabindex="0" style="margin-left: -20px; margin-top: -20px; width: 20px; height: 20px; transform: translate3d(236px, 125px, 0px); z-index: 125;">
+                    <img src="map-marker.svg" class="leaflet-marker-icon" id="sm-v" title="ITI - Smart Village" alt="" tabindex="0" style="margin-left: -20px; margin-top: -20px; width: 20px; height: 20px; transform: translate3d(261px, 155px, 0px); z-index: 155;">
+                    <img src="map-marker.svg" class="leaflet-marker-icon" id="aswan" title="Computer Science Training Center - Aswan" alt="" tabindex="0" style="margin-left: -20px; margin-top: -20px; width: 20px; height: 20px; transform: translate3d(304px, 308px, 0px); z-index: 308;">
+                </div>
+        
+            </div>
+        </div>
+
+        <div class="cards-group">
+            <div class="row">
+                <div class="card">
+                    <div class="location-btn" kloc="sm-v">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <span> ITI - Smart Village</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="location-btn" kloc="alex">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <span> ITI - Alexandria</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="location-btn" kloc="mans">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <span> ITI - Mansoura</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="location-btn" kloc="aswan">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <span> ITI - Aswan</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="location-btn" kloc="sewa">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <span> ITI - Sewa</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="location-btn" kloc="qyna">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <span> ITI - Qyna</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="location-btn" kloc="mat">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <span> ITI - Marsa Matrooh</span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="location-btn" kloc="ism">
+                        <i class="fas fa-map-marker-alt fa-lg"></i>
+                        <span> ITI - Ismalia</span>
+                    </div>
+                </div>
+            </div>
+            <div class="guide">
+                <div>
+                    Main Branch
+                </div>
+                <div>
+                    Branch
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="row">
+            <div class="locations">
+                <h6>CONTACT US</h6>
+                <ul>
+                    <li>
+                        <i class="far fa-dot-circle"></i>
+                        <span>
+                            28 Km by Cairo / Alexandria Desert Road, 6 October, B148, Egypt
+                        </span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+20235355656">(+202) 353-55656</a>
+                    </li>
+                    <li>
+                        <i class="far fa-envelope"></i>
+                        <a href="mailto:ITIinfo@iti.gov.eg">ITIinfo@iti.gov.eg</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social">
+                <h6>FOLLOW US</h6>
+                <ul>
+                    <li>
+                        <a href="">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
