@@ -1,68 +1,53 @@
 
-window.addEventListener('load', function () {
-    // select video element : global
-    myvideo = this.document.getElementById('myvideo');
-    playpausebtn = this.document.getElementById('playpausebtn');
-});//end of load
-function playpausefun() {
-    if (myvideo.paused) {
-        myvideo.play();
-        playpausebtn.value = "Pause";
-    } else {
-        myvideo.pause();
-        playpausebtn.value = "Play";
-    }
+let myvideo = document.getElementById('myvideo');
+let btns = document.querySelectorAll('button.card');
+
+myvideo.ondblclick = () => {
+    // console.log("heelo");
+    myvideo.requestFullscreen();
 }
-function changemediasize(e) {
+
+btns.forEach((b) => {
+    b.addEventListener("click", () => {
+        btns.forEach((b) => { b.classList.remove('clicked'); });
+        b.classList.add("clicked");
+    });
+});
+
+document.onkeydown = (e) => {
+    let _exists = false;
+    btns.forEach((b) => { 
+        if(b.classList.contains('clicked')){
+            _exists = true;
+            return;
+        }
+    });
+
+    if(!_exists) {
+        return;
+    }
     
-    switch(e.value) {
-        case "small":
-            console.log("small");
-            myvideo.width = 500;
-            myvideo.height = 500;
-            break;
-        case "medium":
-            myvideo.width = 600;
-            myvideo.height = 600;
-            break;
-        case "large":
-            myvideo.width = 700;
-            myvideo.height = 700;
-            break;
-        case "fullscreen":
-            myvideo.requestFullscreen();
-            break;
-        default:
+    if(e.code == "ArrowUp") {
+
+        for(let i = btns.length - 1; i > 0; i--) {
+            if(btns[i].classList.contains("clicked")) {
+                btns[i].classList.remove("clicked");
+                btns[i-1].classList.add("clicked");
+                btns[i].parentNode.scrollBy(0, -25);
+                return ;
+            }        
+        }
+
+    } else if (e.code == "ArrowDown") {
+
+        for(let i = 0; i < btns.length - 1; i++) {
+            if(btns[i].classList.contains("clicked")) {
+                btns[i].classList.remove("clicked");
+                btns[i+1].classList.add("clicked");
+                btns[i].parentNode.scrollBy(0, 25);
+                return ;
+            }
+        }
+
     }
-}
-function mutefun() {
-    if (myvideo.muted) {
-        myvideo.muted = false;
-    } else {
-        myvideo.muted = true;
-    }
-}
-function loopfun() {
-    if (myvideo.loop) {
-        myvideo.loop = false;
-    } else {
-        myvideo.loop = true;
-    }
-}
-function changevolume(e) {
-    myvideo.volume = e.target.value;
-}
-function changeseekbar(e) {
-    // currentTime 
-    myvideo.currentTime = myvideo.duration * e.target.value / 100;
-}
-function forwardfun() {
-    // increae playbackrate
-    myvideo.playbackRate++;
-}
-function backwardfun() {
-    //decrease playbackrate
-    myvideo.playbackRate--;
-    if (myvideo.playbackRate <= 0)
-        myvideo.playbackRate = 1;
 }
