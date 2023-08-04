@@ -40,7 +40,6 @@
     background-color: transparent;
     width: 85%;
     cursor: pointer;
-    animation: cardAnimation 1s ease-in 0s 1 normal both;
     transition: all 0.5s ease-in-out;
 }
 
@@ -73,6 +72,10 @@ video:hover {
 
 #controlswrapper .cards-group:hover {
     background-color: darkorange;
+}
+
+button.card:hover {
+    animation: cardAnimation 1s ease-in 0s 1 normal both;
 }
 
 button.card:not(.clicked):hover {
