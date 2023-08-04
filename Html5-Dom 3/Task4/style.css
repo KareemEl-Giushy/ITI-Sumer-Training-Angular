@@ -1,0 +1,53 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+div.container {
+    width: 80%;
+    margin: 25vh auto;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 70px;
+    background-color: yellow;
+    border: 3px solid;
+    border-top-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    box-shadow: 9px 9px 10px 0px #000;
+}
+
+div.container > div {
+    flex: 1;
+    padding: 70px 40px 10px;
+    text-transform: uppercase;
+    border-radius: 25px;
+    box-shadow: inset 0px 0px 40px 0px #000;
+
+}
+
+div.add {
+    background-color: lightcoral;
+}
+
+div.multi {
+    background-color: greenyellow;
+}
+
+div.fields {
+    font-weight: bold;
+}
+
+div.fields input {
+    width: 120px;
+    padding: 15px 10px;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+div.fields span:last-child {
+    font-size: 25px;
+}
